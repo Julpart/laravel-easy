@@ -16,16 +16,18 @@ class NewsController extends Controller
     public function show($id): string
     {
         $news = News::getNewsId($id);
+        dump('show');
         if(is_null($news)) return abort(404);
         return view('news.newsOne')->with('news',$news);
     }
     public function showCategory($id): string
     {
         $news = News::getNewsByCategory($id);
+        dump('showCategory');
         if(is_null($news)) return abort(404);
         return view('news.newsCategory')->with('news',$news);
     }
-    public function newsAdd(): string
+    public function add(): string
     {
         return view('news.newsAdd');
     }
