@@ -17,9 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class,'index'])->name('home');
-
-Route::get('/authorization', [HomeController::class,'authorization'])->name('authorization');
+Route::get('/', [HomeController::class,'index'])->name('index');
 
 Route::name('admin.')
     ->prefix('admin')
@@ -40,4 +38,10 @@ Route::prefix('news')
         Route::get('/category/{id}', [NewsController::class,'showCategory'])->name('newsCategory');
         Route::get('/add', [NewsController::class,'add'])->name('newsAdd');
     });
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'home'])->name('home');
+
 
