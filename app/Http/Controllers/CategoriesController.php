@@ -8,10 +8,9 @@ use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
 {
-    public function index(): string
+    public function index(Categories $categories)
     {
-        $categories= Categories::getCategories();
-        return view('categories')->with('categories', $categories);
+        return view('categories')->with('categories', $categories->getCategories());
     }
 
 }
