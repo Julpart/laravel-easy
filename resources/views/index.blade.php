@@ -1,11 +1,19 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('menu')
     @include('menu')
 @endsection
 
 @section('content')
-<div>
-    Приветствую!
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                        Приветствую!
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 @endsection

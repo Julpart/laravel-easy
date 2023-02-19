@@ -7,23 +7,23 @@ class Categories
     private array $categories = [
         [
             'id' => 1,
-            'name' => 'Sport',
+            'name' => 'Спорт',
         ],
         [
             'id' => 2,
-            'name' => 'Politics',
+            'name' => 'Политика',
         ],
         [
             'id' => 3,
-            'name' => 'Music',
+            'name' => 'Музыка',
         ],
         [
             'id' => 4,
-            'name' => 'Movies',
+            'name' => 'Фильмы',
         ],
         [
             'id' => 5,
-            'name' => 'Economy',
+            'name' => 'Экономика',
         ],
 
     ];

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Storage;
 use function PHPUnit\Framework\isNull;
 
 class News
@@ -9,7 +10,7 @@ class News
     private Categories $categories;
 
     private array $news = [
-        [
+        1 => [
             'id' => 1,
             'title' => 'News 1',
             'text' => 'Some sport news 1',
@@ -192,7 +193,8 @@ class News
     }
 
     public  function getNews(): array {
-        return $this->news;
+        $news = json_decode(Storage::disk('local')->get('news.json'),true);
+        return $news;
     }
 
     public function getNewsId($id): ?array {
