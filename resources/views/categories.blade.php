@@ -11,7 +11,7 @@
 
             <div class="card-body">
                 @foreach($categories as $item)
-                    <a href="{{route('news.newsCategory',$item['id'])}}">{{$item['name']}}</a><br>
+                    <a href="{{route('news.newsCategory',$item->id)}}">{{$item->name}}</a><br>
                 @endforeach
             </div>
         </div>

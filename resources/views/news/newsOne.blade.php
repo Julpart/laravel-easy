@@ -6,12 +6,12 @@
 @endsection
 
 @section('content')
-    @if(!$news['isPrivate'])
+    @if(!$news->isPrivate)
 <h2>
-    {{ $news['title'] }}
+    {{ $news->title }}
 </h2>
 <p>
-    {{ $news['text'] }}
+    {{ $news->text }}
 </p>
 @else
         Зарегистрируйтесь для просмотра

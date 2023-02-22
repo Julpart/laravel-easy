@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use function PHPUnit\Framework\isNull;
 
@@ -192,16 +193,14 @@ class News
         $this->categories = $categories;
     }
 
-    public  function getNews(): array {
-        $news = json_decode(Storage::disk('local')->get('news.json'),true);
+    public  function getNews() {
+        $news = DB::table('news')->get();
         return $news;
     }
 
-    public function getNewsId($id): ?array {
-        foreach ($this->getNews() as $news){
-            if($news['id'] == $id) return $news;
-        }
-        return null;
+    public function getNewsId($id) {
+        $newsId = DB::table('news')->find($id);
+        return $newsId;
     }
 
     public function getNewsByCategory($id): ?array {

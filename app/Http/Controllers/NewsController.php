@@ -5,12 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Categories;
 use App\Models\News;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NewsController extends Controller
 {
     public function index(News $news): string
     {
-        return view('news.index')->with('news', $news->getNews());
+        $newsData = $news->getNews();
+        return view('news.index')->with('news', $newsData);
     }
 
     public function show(News $news,$id): string

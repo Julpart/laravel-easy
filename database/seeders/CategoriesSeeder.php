@@ -1,13 +1,21 @@
 <?php
 
-namespace App\Models;
+namespace Database\Seeders;
 
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
+use Faker;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Storage;
 
-class Categories
+class CategoriesSeeder extends Seeder
 {
-    private array $categories = [
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+
+    protected array $data = [
         [
             'id' => 1,
             'name' => 'Спорт',
@@ -28,16 +36,14 @@ class Categories
             'id' => 5,
             'name' => 'Экономика',
         ],
-
     ];
-
-    public function getCategories() {
-        $categorires = DB::table('categories')->get();
-        return $categorires;
+    public function run()
+    {
+        DB::table('categories')->insert($this->getData());
     }
 
-    public function getCategoriesId($id) {
-        $categoriesId = DB::table('categories')->find($id);
-        return $categoriesId;
+    private function getData() {
+
+        return $this->data;
     }
 }
